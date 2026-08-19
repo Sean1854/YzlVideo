@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="video"
+            type="com.ls.data_video.bean.ResVideo" />
+        <variable
+            name="color"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp">
+
+        <ImageView
+            android:id="@+id/iv_background"
+            android:layout_width="match_parent"
+            android:layout_height="216dp"
+            android:scaleType="centerCrop"
+            tool:src="@mipmap/icon_video_test"
+            imageUrl="@{video.image}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="16dp"
+            android:src="@mipmap/icon_mute"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="19.5dp"
+            android:layout_height="19.5dp"
+            android:src="@mipmap/icon_play"
+            app:layout_constraintBottom_toBottomOf="@id/iv_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_background" />
+
+        <ImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="14dp"
+            android:scaleType="centerCrop"
+            tool:src="@mipmap/icon_avatar"
+            imageCircleUrl="@{video.avatar}"
+            app:layout_constraintBottom_toBottomOf="@id/tv_anchor"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="22dp"
+            android:text="@{video.title}"
+            tool:text="标题"
+            android:textColor="@{color?@color/white:@color/black}"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/iv_avatar"
+            app:layout_constraintTop_toBottomOf="@id/iv_background" />
+
+        <TextView
+            android:id="@+id/tv_anchor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{video.description}"
+            android:textColor="@{color?@color/white:@color/black}"
+            android:textSize="11sp"
+            android:maxLines="1"
+            tool:text="描述"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="@id/tv_title"
+            app:layout_constraintEnd_toStartOf="@id/iv_duration"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+        <ImageView
+            android:id="@+id/iv_duration"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/icon_duration"
+            android:layout_marginRight="4dp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_duration"
+            app:layout_constraintTop_toTopOf="@+id/tv_duration"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_duration"/>
+
+        <TextView
+            android:id="@+id/tv_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@{video.duration}"
+            android:textColor="@{color?@color/white:@color/black}"
+            android:textSize="11sp"
+            tool:text="00.00"
+           app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="14dp"
+            app:layout_constraintTop_toTopOf="@id/tv_anchor" />
+
+        <View
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_anchor"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginRight="10dp"
+            android:background="#33000000" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

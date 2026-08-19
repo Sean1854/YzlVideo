@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity
+            android:name=".topic.TopicActivity"
+            android:exported="false" />
+        <activity
+            android:name=".categorydetail.CategoryDetailActivity"
+            android:exported="false"></activity>
+        <activity
+            android:name=".themelist.ThemeListActivity"
+            android:exported="false"></activity>
+    </application>
+
+</manifest>

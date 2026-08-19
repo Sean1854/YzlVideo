@@ -1,0 +1,55 @@
+apply from:"../featureConfig.build.gradle"
+
+android {
+    namespace 'com.ls.feature_plaza'
+    defaultConfig{
+        if (rootProject.ext.isModule) {
+            applicationId "com.ls.feature_plaza"
+        }
+    }
+}
+//android {
+//    namespace 'com.ls.feature_plaza'
+//    compileSdk rootProject.ext.compileSdkVersion
+//
+//    defaultConfig {
+//        if (rootProject.ext.isModule) {
+//            applicationId "com.ls.feature_plaza"
+//        }
+//        minSdk rootProject.ext.minSdkVersion
+//        targetSdk rootProject.ext.targetSdkVersion
+//        versionCode rootProject.ext.versionCode
+//        versionName rootProject.ext.versionName
+//
+//        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+//    }
+//
+//    buildTypes {
+//        release {
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//        }
+//    }
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
+//}
+
+dependencies {
+
+//    implementation libs.appcompat
+//    implementation libs.material
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+    annotationProcessor libs.arouterCompiler
+
+    implementation 'com.github.xiaohaibin:XBanner:androidx_v1.2.6'
+    
+
+    implementation project(":library_base")
+    implementation project(":data_video")
+
+
+}

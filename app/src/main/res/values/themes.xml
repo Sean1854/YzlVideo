@@ -1,0 +1,27 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.YzlVideo" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.YzlVideo" parent="Base.Theme.YzlVideo" />
+    
+    <style name="mainBottomRadioButton">
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:textColor">@drawable/radio_textcolor</item>
+
+
+    </style>
+
+    <style name="SplashTheme" parent="Theme.Material3.Light.NoActionBar">
+        <!-- 白底 + 居中 logo 直接进 windowBackground，点击图标即显示，零白屏 -->
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <!-- 沉浸式由 SplashActivity 的 setImmerseStatusBar 实现：透明状态栏 + 内容延伸 + 深色图标，
+             不再使用 windowFullscreen（Android 15 起该属性被忽略且与其他页面效果不一致） -->
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+</resources>

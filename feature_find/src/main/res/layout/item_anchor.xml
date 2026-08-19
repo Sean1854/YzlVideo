@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.ls.feature_find.bean.ResFindAnchor" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="146dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:paddingBottom="22dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            imageUrl="@{data.image}"
+            android:layout_width="146dp"
+            android:layout_height="138dp"
+            android:scaleType="centerCrop"
+            tool:src="@mipmap/icon_notify" />
+
+
+        <TextView
+            android:id="@+id/tv_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="11dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{data.title}"
+            android:textColor="#ff444444"
+            android:textSize="11sp"
+            tool:text="label" />
+    </LinearLayout>
+</layout>

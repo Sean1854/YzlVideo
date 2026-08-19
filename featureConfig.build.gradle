@@ -1,0 +1,58 @@
+if (rootProject.ext.isModule) {
+    apply plugin: 'com.android.application' //指定为独立运行的应用
+} else {
+    apply plugin: 'com.android.library' //库
+}
+
+android {
+//    namespace 'com.ls.feature_find'
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+//        if (rootProject.ext.isModule) {
+//            applicationId "com.ls.feature_find"
+//        }
+
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+        consumerProguardFiles "consumer-rules.pro"//这个指定的是当前子模块的混淆规则
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding{
+        enabled true
+    }
+
+    sourceSets{
+
+        main{
+            if (rootProject.ext.isModule){
+                manifest.srcFile 'src/main/alone/AndroidManifest.xml'
+            }else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 纯白底，点击图标即显示，与启动页布局底色一致，空窗期无灰白突变 -->
+    <item android:drawable="@color/white" />
+</layer-list>

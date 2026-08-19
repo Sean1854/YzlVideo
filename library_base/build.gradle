@@ -1,0 +1,63 @@
+plugins {
+    alias(libs.plugins.androidLibrary)
+}
+
+android {
+    namespace 'com.ls.libbase'
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        minSdk rootProject.ext.minSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding{
+        enabled true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    api libs.activity
+    api libs.constraintlayout
+    api libs.appcompat
+    api libs.material
+    api libs.arouter
+    api libs.liveData
+    api libs.viewModel
+    api libs.androidAutoSize
+    api libs.flycoTabLayout
+    api libs.glide
+
+    api libs.refreshlayout
+    api libs.refreshlayoutRadar
+    api libs.refreshlayoutFooterBall
+
+    api libs.security
+    api libs.eventBus
+
+    api project(":network")//引用网络库
+
+    annotationProcessor libs.arouterCompiler
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+}

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.ls.data_video.bean.ResCategoryVideoDetail" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/tv_avatar"
+            imageCircleUrl="@{data.avatar}"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:text="@{data.title}"
+            android:textColor="#ff000000"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@id/tv_avatar"
+            app:layout_constraintTop_toTopOf="@+id/tv_avatar"
+            tool:text="Apple 苹果广告精选" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2024.12.13"
+            android:textColor="#ff9c9c9c"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+        <ImageView
+            android:id="@+id/iv_image"
+            imageUrl="@{data.image}"
+            android:layout_width="375.5dp"
+            android:layout_height="212dp"
+            android:layout_marginTop="10.5dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/bg_default"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_time" />
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="14dp"
+            android:text="@{data.description}"
+            android:textColor="#ff444444"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_image"
+            tool:text="现在，您可以在信息中直接创建独特的 Genmoii。只需描述您想要创建的 Genmoii，然后将其添加到您的对话中。" />
+
+        <ImageView
+            android:id="@+id/iv_likes"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="40dp"
+            android:src="@{data.islike?@drawable/icon_yet_likes:@drawable/icon_likes}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
+        <TextView
+            android:id="@+id/tv_likes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@{data.strLikes}"
+            android:textColor="#ff9c9c9c"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_likes"
+            app:layout_constraintStart_toEndOf="@id/iv_likes"
+            app:layout_constraintTop_toTopOf="@id/iv_likes" />
+
+        <ImageView
+            android:id="@+id/iv_collection"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="40dp"
+            android:src="@{data.iscollection?@drawable/icon_yet_collection:@drawable/icon_collection}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
+        <TextView
+            android:id="@+id/tv_collection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@{data.strCollection}"
+            android:textColor="#ff9c9c9c"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_collection"
+            app:layout_constraintStart_toEndOf="@id/iv_collection"
+            app:layout_constraintTop_toTopOf="@id/iv_collection" />
+
+        <ImageView
+            android:id="@+id/iv_comments"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="148dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/icon_comments"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
+        <TextView
+            android:id="@+id/tv_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@{data.strComments}"
+            android:textColor="#ff9c9c9c"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_comments"
+            app:layout_constraintStart_toEndOf="@id/iv_comments"
+            app:layout_constraintTop_toTopOf="@id/iv_comments" />
+
+        <ImageView
+            android:id="@+id/iv_arrow"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="14dp"
+            android:src="@mipmap/icon_report"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="#ff9c9c9c"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_likes" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ls.video.MainViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".MainActivity">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fcv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/rg_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <RadioGroup
+            android:id="@+id/rg_button"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <RadioButton
+                android:id="@+id/rb_home"
+                style="@style/mainBottomRadioButton"
+                android:layout_width="0dp"
+               android:checked="true"
+                android:drawableTop="@drawable/radio_button_home"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="首页" />
+
+            <RadioButton
+                android:id="@+id/rb_plaza"
+                style="@style/mainBottomRadioButton"
+                android:layout_width="0dp"
+                android:drawableTop="@drawable/radio_button_plaza"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="广场" />
+
+            <RadioButton
+                android:id="@+id/rb_find"
+                style="@style/mainBottomRadioButton"
+                android:drawableTop="@drawable/radio_button_find"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="发现" />
+
+            <RadioButton
+                android:id="@+id/rb_mine"
+                style="@style/mainBottomRadioButton"
+                android:drawableTop="@drawable/radio_button_mine"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="我的" />
+
+        </RadioGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

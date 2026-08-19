@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 状态：不可点击 -->
+    <item android:state_enabled="false" android:drawable="@android:color/darker_gray" />
+    <!-- 状态：可点击 -->
+    <item android:state_enabled="true" android:drawable="@android:color/black" />
+</selector>

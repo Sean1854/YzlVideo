@@ -1,0 +1,37 @@
+apply from:"../featureConfig.build.gradle"
+
+android {
+    namespace 'com.ls.feature_user'
+    defaultConfig{
+        if (rootProject.ext.isModule) {
+            applicationId "com.ls.feature_user"
+        }
+    }
+
+}
+
+dependencies {
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+
+    // CameraX 相机能力
+    implementation libs.cameraxCore
+    implementation libs.cameraxLifecycle
+    implementation libs.cameraxView
+    implementation libs.cameraxExt
+    // CameraX / 权限 / FileProvider 所需基础库
+    implementation libs.core
+    implementation libs.exifinterface
+
+
+//    implementation libs.appcompat
+//    implementation libs.material
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+    annotationProcessor libs.arouterCompiler
+    implementation project(":library_base")
+
+}

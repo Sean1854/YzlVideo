@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="topicinfo"
+            type="com.ls.feature_find.bean.ResTopic" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_image"
+            imageUrl="@{topicinfo.cover}"
+            android:layout_width="126dp"
+            android:layout_height="105dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="12dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/bg_default"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/iv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="@{topicinfo.title}"
+            android:textColor="#ff000000"
+            android:textSize="13sp"
+            app:layout_constraintStart_toEndOf="@id/iv_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tool:text="冬日旅行收藏夹" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="43dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            android:ellipsize="end"
+            android:gravity="start|top"
+            android:maxLines="3"
+            android:text="@{topicinfo.description}"
+            android:textColor="#ff9c9c9c"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toTopOf="@id/iv_people"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/iv_people"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@{topicinfo.people}"
+            android:textColor="#ff9c9c9c"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_image"
+            app:layout_constraintStart_toEndOf="@id/iv_image" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="14dp"
+            android:background="#ff9c9c9c"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_image" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

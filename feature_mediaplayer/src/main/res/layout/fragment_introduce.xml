@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.ls.mediaplayer.ui.videodetail.VideoDetailViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.introduce.IntroduceFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="24dp"
+                android:text="@{viewModel.archivesInfo.title}"
+                android:textColor="#ffffffff"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_channel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="7dp"
+                android:text="@{viewModel.channel}"
+                android:textColor="#ffffffff"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="15dp"
+                android:gravity="start"
+                android:text="@{viewModel.archivesInfo.description}"
+                android:textColor="#ffffffff"
+                android:textSize="13sp"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_channel" />
+
+            <ImageView
+                android:id="@+id/iv_like"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="24dp"
+                tools:src="@drawable/icon_likes"
+                android:onClick="@{() -> viewModel.onLikeClick()}"
+                android:src="@{viewModel.isLikes?@drawable/icon_yet_likes : @drawable/icon_likes}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
+            <TextView
+                android:id="@+id/tv_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@{viewModel.archivesInfo.strLikes}"
+                android:textColor="#ffffffff"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="@id/iv_like"
+                app:layout_constraintStart_toStartOf="@id/iv_like"
+                app:layout_constraintTop_toBottomOf="@id/iv_like" />
+
+            <ImageView
+                android:id="@+id/iv_collection"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="129.5dp"
+                android:layout_marginTop="24dp"
+                android:onClick="@{() -> viewModel.onCollectionClick()}"
+                android:src="@{viewModel.isCollection ? @drawable/icon_yet_collection : @drawable/icon_collection}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
+            <TextView
+                android:id="@+id/tv_collection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@{viewModel.archivesInfo.strCollection}"
+                android:textColor="#ffffffff"
+                android:textSize="11sp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="@id/iv_collection"
+                app:layout_constraintStart_toStartOf="@id/iv_collection"
+                app:layout_constraintTop_toBottomOf="@id/iv_collection" />
+
+            <ImageView
+                android:id="@+id/iv_comments"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="226.5dp"
+                android:layout_marginTop="24dp"
+                android:src="@mipmap/icon_comments"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
+            <TextView
+                android:id="@+id/tv_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@{viewModel.archivesInfo.strComment}"
+                android:textColor="#ffffffff"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="@id/iv_comments"
+                app:layout_constraintStart_toStartOf="@id/iv_comments"
+                app:layout_constraintTop_toBottomOf="@id/iv_comments" />
+
+            <ImageView
+                android:id="@+id/iv_arrow"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="323dp"
+                android:layout_marginTop="24dp"
+                android:src="@mipmap/icon_report"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@{viewModel.archivesInfo.strViews}"
+                android:textColor="#ffffffff"
+                android:textSize="11sp"
+                app:layout_constraintEnd_toEndOf="@id/iv_arrow"
+                app:layout_constraintStart_toStartOf="@id/iv_arrow"
+                app:layout_constraintTop_toBottomOf="@id/iv_arrow" />
+
+            <View
+                android:id="@+id/barrier"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="43dp"
+                android:background="#33ffffff"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_arrow" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fcv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp" />
+
+    </LinearLayout>
+</layout>

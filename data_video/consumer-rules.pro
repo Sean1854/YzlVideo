@@ -1,0 +1,1 @@
+-keep class com.ls.data_video.bean.**{ *;}

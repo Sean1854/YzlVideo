@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
+    <application
+        android:name=".FindApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:usesCleartextTraffic="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.YzlVideo">
+        <activity android:name=".categorydetail.CategoryDetailActivity"
+            android:exported="false">
+        </activity>
+        <activity android:name=".themelist.ThemeListActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".topic.TopicActivity"
+            android:exported="false" />
+
+        <!--AndroidAutoSize库的配置-->
+        <meta-data
+            android:name="design_width_in_dp"
+            android:value="375" />
+        <meta-data
+            android:name="design_height_in_dp"
+            android:value="832" />
+
+    </application>
+
+</manifest>

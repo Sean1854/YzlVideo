@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ls.mediaplayer.ui.videodetail.VideoDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:fitsSystemWindows="false">
+
+        <!-- Title TextView -->
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="最热评论"
+            android:textColor="#ffffffff"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/smart_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            app:layout_constraintBottom_toTopOf="@id/cl_comment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title">
+
+            <com.scwang.smart.refresh.header.BezierRadarHeader
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="360dp" />  <!--360-->
+
+            <com.scwang.smart.refresh.footer.BallPulseFooter
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+        <!-- Comment Section (cl_comment) -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ff313131"
+            android:paddingTop="22dp"
+            android:paddingBottom="22dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <!-- EditText for Comment -->
+            <EditText
+                android:id="@+id/et_chat"
+                android:layout_width="172dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/bg_edittext"
+                android:gravity="center|start"
+                android:hint="聊一聊..."
+                android:imeOptions="actionSend"
+                android:inputType="text"
+                android:paddingStart="16dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- Likes Icon and Text -->
+
+            <ImageView
+                android:id="@+id/iv_likes"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="28dp"
+                android:onClick="@{()->viewModel.onLikeClick()}"
+                android:src="@{viewModel.isLikes?@drawable/icon_yet_likes:@drawable/icon_likes}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/et_chat"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_likes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@{viewModel.archivesInfo.strLikes}"
+                android:textColor="#ffffffff"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_likes"
+                app:layout_constraintStart_toEndOf="@id/iv_likes"
+                app:layout_constraintTop_toTopOf="@id/iv_likes" />
+
+
+            <ImageView
+                android:id="@+id/iv_collection"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="86.5dp"
+                android:onClick="@{()->viewModel.onCollectionClick()}"
+                android:src="@{viewModel.isCollection?@drawable/icon_yet_collection:@drawable/icon_collection}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/et_chat"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/tv_collection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@{viewModel.archivesInfo.strCollection}"
+                android:textColor="#ffffffff"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_collection"
+                app:layout_constraintStart_toEndOf="@id/iv_collection"
+                app:layout_constraintTop_toTopOf="@id/iv_collection" />
+
+            <!-- Comments Icon and Text -->
+            <!--            <ImageView-->
+            <!--                android:id="@+id/iv_comments"-->
+            <!--                android:layout_width="16dp"-->
+            <!--                android:layout_height="16dp"-->
+            <!--                android:layout_marginStart="145dp"-->
+            <!--                android:src="@mipmap/icon_comments"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintStart_toEndOf="@id/et_chat"-->
+            <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/tv_comment"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginStart="4dp"-->
+            <!--                android:text="0"-->
+            <!--                android:textColor="#ffffffff"-->
+            <!--                android:textSize="11sp"-->
+            <!--                app:layout_constraintBottom_toBottomOf="@id/iv_comments"-->
+            <!--                app:layout_constraintStart_toEndOf="@id/iv_comments"-->
+            <!--                app:layout_constraintTop_toTopOf="@id/iv_comments" />-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

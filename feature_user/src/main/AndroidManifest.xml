@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 相机与存储读取权限（运行时申请） -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
+    <application>
+        <activity
+            android:name=".ui.editInfo.EditUserInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.camera.CameraActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".aboutme.AboutMeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.agreement.AgreementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.account.AccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.resetpwd.ResetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pushsettings.PushSettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".playsettings.PlaySettingsActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>
