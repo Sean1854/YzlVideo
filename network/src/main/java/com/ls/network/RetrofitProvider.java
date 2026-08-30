@@ -4,7 +4,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitProvider {
-    private static final String BASE_URL = "https://titok.fzqq.fun/";
+    private static final String BASE_URL = "隐藏服务器地址";
     private static Retrofit mRetrofit;
     public static Retrofit provider(){
 
